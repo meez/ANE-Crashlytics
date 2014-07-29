@@ -5,7 +5,7 @@
     <property file="build.config"/>
 
     <!-- All -->
-    <target name="all" depends="ios,ios-dependencies,android,swc,package" description="Full build of extension"/>
+    <target name="all" depends="ios-dependencies,android,swc,package" description="Full build of extension"/>
 
     <!-- iOS -->
     <target name="ios" description="Build iOS Library">
@@ -91,7 +91,7 @@
             <regexpmapper from=".*src.(.*)\.as" to="\1"/>
         </pathconvert>
 
-        <exec executable="${flex.sdk}/bin/compc${bin.ext}" failonerror="true">
+        <exec executable="${flex.sdk}/bin/compc${exe.ext}" failonerror="true">
             <env key="AIR_SDK_HOME" value="${flex.sdk}"/>
             <arg line='-source-path ../actionscript/src'/>
             <arg line='-output ../temp/swc/${name}.swc'/>
@@ -109,11 +109,11 @@
 
     <!-- Package -->
     <target name="package" description="Create the extension package">
-        <exec executable="${flex.sdk}/bin/adt${bin.ext}" failonerror="true" dir="../temp">
+        <exec executable="${flex.sdk}/bin/adt${bat.ext}" failonerror="true" dir="../temp">
             <arg value="-package"/>
             <arg value="-target"/>
             <arg value="ane"/>
-            <arg value="${name}.ane"/>
+            <arg value="com.freshplanet.${name}.ane"/>
             <arg value="../build/extension.xml"/>
             <arg line="-swc swc/${name}.swc"/>
             <arg line="-platform iPhone-ARM -platformoptions ../build/platform.xml Crashlytics.framework -C ios/ ."/>
@@ -121,8 +121,10 @@
             <arg line="-platform default -C default/ ."/>
         </exec>
 
-        <move file="../temp/${name}.ane" todir="../bin"/>
-        <delete dir="../temp"/>
+        <move file="../temp/com.freshplanet.${name}.ane" todir="../bin"/>
+        
+<!-- Hang on to this dir until iOS SDK is updated -->
+<!-- <delete dir="../temp"/> -->
     </target>
 
 </project>
