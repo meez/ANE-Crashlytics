@@ -5,6 +5,7 @@
     <property file="build.config"/>
 
     <!-- All -->
+<!-- TODO: Add 'ios' target to 'all' once updated iOS SDK is in place and working -->
     <target name="all" depends="ios-dependencies,android,swc,package" description="Full build of extension"/>
 
     <!-- iOS -->
@@ -51,7 +52,7 @@
 
         <echo message="Using Java version ${ant.java.version}."/>
 
-        <javac source="1.6" srcdir="../android/src" destdir="../android/temp/classes" includeantruntime="false" debug="${ANDROID_DEBUG}">
+        <javac source="1.6" target="1.6" srcdir="../android/src" destdir="../android/temp/classes" includeantruntime="false" debug="${ANDROID_DEBUG}">
             <classpath>
                 <pathelement location="${android.sdk}/android.jar"/>
                 <pathelement location="${flex.sdk}/lib/android/FlashRuntimeExtensions.jar"/>
@@ -122,7 +123,8 @@
         </exec>
 
         <move file="../temp/com.freshplanet.${name}.ane" todir="../bin"/>
-        
+
+<!--TODO: delete this temp directory when iOS SDK is updated and working -->
 <!-- Hang on to this dir until iOS SDK is updated -->
 <!-- <delete dir="../temp"/> -->
     </target>
