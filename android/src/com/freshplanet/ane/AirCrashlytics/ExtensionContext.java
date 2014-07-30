@@ -36,6 +36,7 @@ import com.freshplanet.ane.AirCrashlytics.functions.StartFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetUserNameFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetUserEmailFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetApplicationInstallationIdentifierFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.LogMessageFunction;
 
 public class ExtensionContext extends FREContext
 {
@@ -63,6 +64,8 @@ public class ExtensionContext extends FREContext
 		functions.put("setInt", new SetIntFunction());
 		functions.put("setFloat", new SetFloatFunction());
 		functions.put("setString", new SetStringFunction());
+                functions.put("logMessage", new LogMessageFunction());
+                
 		return functions;	
 	}
 }

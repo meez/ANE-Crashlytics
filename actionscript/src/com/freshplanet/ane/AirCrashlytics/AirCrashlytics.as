@@ -87,6 +87,11 @@ package com.freshplanet.ane.AirCrashlytics
 			call("setApplicationInstallationIdentifier", value);
 		}
         
+        public static function logMessage(msg:String):void
+        {
+            call("logMessage", msg);
+        }
+        
 		public static function setBool(key:String, value:Boolean):void
 		{
 			call("setBool", key, value);
