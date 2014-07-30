@@ -71,7 +71,22 @@ package com.freshplanet.ane.AirCrashlytics
 		{
 			call("setUserIdentifier", value);
 		}
-		
+        
+        public static function set userName(value:String):void
+		{
+			call("setUserName", value);
+		}
+        
+        public static function set userEmail(value:String):void
+		{
+			call("setUserEmail", value);
+		}
+        
+        public static function set applicationInstallationIdentifier(value:String):void
+		{
+			call("setApplicationInstallationIdentifier", value);
+		}
+        
 		public static function setBool(key:String, value:Boolean):void
 		{
 			call("setBool", key, value);

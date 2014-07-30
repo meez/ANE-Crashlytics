@@ -33,6 +33,9 @@ import com.freshplanet.ane.AirCrashlytics.functions.SetIntFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetStringFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.SetUserIdentifierFunction;
 import com.freshplanet.ane.AirCrashlytics.functions.StartFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.SetUserNameFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.SetUserEmailFunction;
+import com.freshplanet.ane.AirCrashlytics.functions.SetApplicationInstallationIdentifierFunction;
 
 public class ExtensionContext extends FREContext
 {
@@ -53,6 +56,9 @@ public class ExtensionContext extends FREContext
 		functions.put("getVersion", new GetVersionFunction());
 		functions.put("setDebugMode", new SetDebugModeFunction());
 		functions.put("setUserIdentifier", new SetUserIdentifierFunction());
+                functions.put("setUserName", new SetUserNameFunction());
+                functions.put("setUserEmail", new SetUserEmailFunction());
+                functions.put("setApplicationInstallationIdentifier", new SetApplicationInstallationIdentifierFunction());
 		functions.put("setBool", new SetBoolFunction());
 		functions.put("setInt", new SetIntFunction());
 		functions.put("setFloat", new SetFloatFunction());
