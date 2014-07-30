@@ -18,6 +18,8 @@
 
 package com.freshplanet.ane.AirCrashlytics.functions;
 
+import android.util.Log;
+
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREObject;
 import com.crashlytics.android.Crashlytics;
@@ -30,7 +32,7 @@ public class LogMessageFunction extends BaseFunction
                 
                 String msg = getStringFromFREObject(args[0]);
                 
-		Crashlytics.log(msg);
+		Crashlytics.log(Log.DEBUG, "AirCrashlytics", msg);
                 
 		return null;
 	}
